@@ -7,6 +7,7 @@ import Categories from "../components/Categories";
 import CustomerReviews from "../components/CustomerReviews";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Footer from "../components/Footer";
+
 const HomePage = () => {
   return (
     <>

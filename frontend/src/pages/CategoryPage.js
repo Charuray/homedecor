@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
-
+const apiUrl = process.env.REACT_APP_API_URL;
 const CategoryPage = () => {
   const { subCategory } = useParams();
   const [products, setProducts] = useState([]);
@@ -18,7 +18,7 @@ const CategoryPage = () => {
     const fetchProducts = async () => {
       try {
         console.log("🔍 Fetching products for:", subCategory);
-        const { data } = await axios.get(`/api/products?category=${encodeURIComponent(subCategory)}`);
+        const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/products?category=${encodeURIComponent(subCategory)}`);
         console.log("📦 Products received:", data);
         setProducts(data);
         setFilteredProducts(data); // Initially set all products

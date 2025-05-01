@@ -5,7 +5,7 @@ import { addToCart } from "../redux/slices/cartSlice";
 import { addToWishlist } from "../redux/slices/wishlistSlice";
 import axios from "axios";
 import { FaCartPlus, FaBolt, FaHeart, FaStar, FaStarHalfAlt } from "react-icons/fa";
-
+const apiUrl = process.env.REACT_APP_API_URL;
 const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const { data } = await axios.get(`/api/products/${id}`);
+        const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/${id}`);
         setProduct(data);
       } catch (error) {
         console.error("Error fetching product:", error.response?.data || error.message);
